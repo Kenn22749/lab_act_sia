@@ -3,75 +3,123 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Nissan GTR Generations</title>
+<title>GTR Generations</title>
 
 <style>
 
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI, sans-serif;
+}
+
 body{
-    margin:0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(120deg,#0f0f0f,#1a1a1a,#000);
-    color:white;
+height:100vh;
+overflow-x:hidden;
+background: linear-gradient(-45deg,#89f7fe,#66a6ff,#fbc2eb,#a6c1ee);
+background-size:400% 400%;
+animation:bgMove 12s infinite alternate;
+}
+
+/* animated background */
+@keyframes bgMove{
+0%{background-position:0% 50%;}
+100%{background-position:100% 50%;}
 }
 
 header{
-    text-align:center;
-    padding:40px;
+text-align:center;
+padding:50px 20px;
+color:white;
 }
 
 header h1{
-    font-size:40px;
-    letter-spacing:3px;
+font-size:48px;
+letter-spacing:2px;
+text-shadow:0 5px 10px rgba(0,0,0,0.2);
 }
 
 header p{
-    color:#aaa;
+opacity:0.9;
+margin-top:10px;
 }
 
 .container{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-    padding:40px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+padding:40px;
+max-width:1200px;
+margin:auto;
 }
 
+/* card design */
+
 .card{
-    background:#111;
-    border-radius:15px;
-    overflow:hidden;
-    transition:0.4s;
-    cursor:pointer;
+background:rgba(255,255,255,0.25);
+backdrop-filter:blur(10px);
+border-radius:18px;
+overflow:hidden;
+transition:0.4s;
+cursor:pointer;
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
 }
 
 .card:hover{
-    transform:scale(1.05);
-    box-shadow:0 0 25px rgba(255,255,255,0.2);
+transform:translateY(-10px) scale(1.03);
+box-shadow:0 20px 40px rgba(0,0,0,0.2);
 }
 
 .card img{
-    width:100%;
-    height:180px;
-    object-fit:cover;
+width:100%;
+height:180px;
+object-fit:cover;
 }
 
 .card-content{
-    padding:20px;
+padding:20px;
+color:#222;
 }
 
 .card h2{
-    margin:0;
+margin-bottom:8px;
 }
 
 .card p{
-    font-size:14px;
-    color:#ccc;
+font-size:14px;
 }
 
-footer{
-    text-align:center;
-    padding:20px;
-    color:#777;
+/* popup */
+
+.popup{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.5);
+display:none;
+align-items:center;
+justify-content:center;
+}
+
+.popup-content{
+background:white;
+padding:30px;
+border-radius:12px;
+max-width:400px;
+text-align:center;
+}
+
+.close{
+margin-top:15px;
+padding:8px 16px;
+border:none;
+background:#66a6ff;
+color:white;
+border-radius:6px;
+cursor:pointer;
 }
 
 </style>
@@ -86,47 +134,61 @@ footer{
 
 <div class="container">
 
-<!-- R32 -->
-<div class="card">
+<div class="card" onclick="showInfo('R32 GT-R','1989–1994. The legendary Godzilla that dominated motorsports with the RB26 twin-turbo engine.')">
 <img src="images/r32.jpg">
 <div class="card-content">
 <h2>R32 GT-R</h2>
-<p>Produced from 1989-1994, the R32 earned the nickname "Godzilla" because it dominated racing in Japan and Australia with its RB26DETT twin-turbo engine.</p>
+<p>The rebirth of the GT-R legend.</p>
 </div>
 </div>
 
-<!-- R33 -->
-<div class="card">
+<div class="card" onclick="showInfo('R33 GT-R','1995–1998. Improved aerodynamics and stability. Famous for its Nürburgring performance.')">
 <img src="images/r33.jpg">
 <div class="card-content">
 <h2>R33 GT-R</h2>
-<p>Released in 1995, the R33 improved stability and aerodynamics. It became the first production car to lap the Nürburgring under 8 minutes.</p>
+<p>The refined racing machine.</p>
 </div>
 </div>
 
-<!-- R34 -->
-<div class="card">
+<div class="card" onclick="showInfo('R34 GT-R','1999–2002. One of the most iconic JDM cars, known from games and movies.')">
 <img src="images/r34.jpg">
 <div class="card-content">
 <h2>R34 GT-R</h2>
-<p>Produced from 1999-2002, the R34 became the most iconic GTR thanks to its appearance in racing, gaming, and movies like Fast & Furious.</p>
+<p>The fan-favorite legend.</p>
 </div>
 </div>
 
-<!-- R35 -->
-<div class="card">
+<div class="card" onclick="showInfo('R35 GT-R','2007–Present. Modern supercar killer with advanced AWD and twin-turbo V6.')">
 <img src="images/r35.jpg">
 <div class="card-content">
 <h2>R35 GT-R</h2>
-<p>Released in 2007, the R35 dropped the Skyline name and introduced a modern twin-turbo V6 with advanced AWD technology.</p>
+<p>The modern Godzilla.</p>
 </div>
 </div>
 
 </div>
 
-<footer>
-<p>JDM Legends | Nissan GTR History</p>
-</footer>
+<div class="popup" id="popup">
+<div class="popup-content">
+<h2 id="title"></h2>
+<p id="text"></p>
+<button class="close" onclick="closePopup()">Close</button>
+</div>
+</div>
+
+<script>
+
+function showInfo(title,text){
+document.getElementById("popup").style.display="flex";
+document.getElementById("title").innerText=title;
+document.getElementById("text").innerText=text;
+}
+
+function closePopup(){
+document.getElementById("popup").style.display="none";
+}
+
+</script>
 
 </body>
 </html>
