@@ -14,19 +14,22 @@ box-sizing:border-box;
 font-family:Segoe UI, sans-serif;
 }
 
+/* Animated background */
+
 body{
-height:100vh;
-overflow-x:hidden;
 background: linear-gradient(-45deg,#89f7fe,#66a6ff,#fbc2eb,#a6c1ee);
 background-size:400% 400%;
-animation:bgMove 12s infinite alternate;
+animation:gradientMove 12s ease infinite;
+min-height:100vh;
 }
 
-/* animated background */
-@keyframes bgMove{
+@keyframes gradientMove{
 0%{background-position:0% 50%;}
-100%{background-position:100% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
 }
+
+/* Header */
 
 header{
 text-align:center;
@@ -37,60 +40,66 @@ color:white;
 header h1{
 font-size:48px;
 letter-spacing:2px;
-text-shadow:0 5px 10px rgba(0,0,0,0.2);
+text-shadow:0 5px 15px rgba(0,0,0,0.3);
 }
 
 header p{
-opacity:0.9;
 margin-top:10px;
+opacity:0.9;
 }
+
+/* Grid */
 
 .container{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:30px;
 padding:40px;
 max-width:1200px;
 margin:auto;
 }
 
-/* card design */
+/* Cards */
 
 .card{
 background:rgba(255,255,255,0.25);
 backdrop-filter:blur(10px);
 border-radius:18px;
 overflow:hidden;
-transition:0.4s;
 cursor:pointer;
-box-shadow:0 10px 25px rgba(0,0,0,0.15);
+transition:0.4s;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
 }
 
 .card:hover{
 transform:translateY(-10px) scale(1.03);
-box-shadow:0 20px 40px rgba(0,0,0,0.2);
+box-shadow:0 20px 40px rgba(0,0,0,0.3);
 }
 
-.card img{
+/* Video */
+
+.card video{
 width:100%;
-height:180px;
+height:200px;
 object-fit:cover;
 }
+
+/* Content */
 
 .card-content{
 padding:20px;
 color:#222;
 }
 
-.card h2{
-margin-bottom:8px;
+.card-content h2{
+margin-bottom:10px;
 }
 
-.card p{
+.card-content p{
 font-size:14px;
 }
 
-/* popup */
+/* Popup */
 
 .popup{
 position:fixed;
@@ -112,9 +121,9 @@ max-width:400px;
 text-align:center;
 }
 
-.close{
+.popup-content button{
 margin-top:15px;
-padding:8px 16px;
+padding:10px 18px;
 border:none;
 background:#66a6ff;
 color:white;
@@ -134,58 +143,97 @@ cursor:pointer;
 
 <div class="container">
 
-<div class="card" onclick="showInfo('R32 GT-R','1989–1994. The legendary Godzilla that dominated motorsports with the RB26 twin-turbo engine.')">
-<img src="images/r32.jpg">
+<!-- R32 -->
+
+<div class="card" onclick="showInfo('R32 GT-R','Produced from 1989 to 1994, the R32 dominated motorsports and earned the nickname Godzilla.')">
+
+<video autoplay muted loop>
+<source src="videos/r32.mp4" type="video/mp4">
+</video>
+
 <div class="card-content">
 <h2>R32 GT-R</h2>
-<p>The rebirth of the GT-R legend.</p>
-</div>
+<p>The rebirth of the legendary Skyline.</p>
 </div>
 
-<div class="card" onclick="showInfo('R33 GT-R','1995–1998. Improved aerodynamics and stability. Famous for its Nürburgring performance.')">
-<img src="images/r33.jpg">
+</div>
+
+<!-- R33 -->
+
+<div class="card" onclick="showInfo('R33 GT-R','Produced from 1995 to 1998. Known for its Nürburgring performance and improved stability.')">
+
+<video autoplay muted loop>
+<source src="videos/r33.mp4" type="video/mp4">
+</video>
+
 <div class="card-content">
 <h2>R33 GT-R</h2>
-<p>The refined racing machine.</p>
-</div>
+<p>A more refined racing machine.</p>
 </div>
 
-<div class="card" onclick="showInfo('R34 GT-R','1999–2002. One of the most iconic JDM cars, known from games and movies.')">
-<img src="images/r34.jpg">
+</div>
+
+<!-- R34 -->
+
+<div class="card" onclick="showInfo('R34 GT-R','Produced from 1999 to 2002. One of the most iconic JDM cars ever created.')">
+
+<video autoplay muted loop>
+<source src="videos/r34.mp4" type="video/mp4">
+</video>
+
 <div class="card-content">
 <h2>R34 GT-R</h2>
-<p>The fan-favorite legend.</p>
-</div>
+<p>The fan favorite legend.</p>
 </div>
 
-<div class="card" onclick="showInfo('R35 GT-R','2007–Present. Modern supercar killer with advanced AWD and twin-turbo V6.')">
-<img src="images/r35.jpg">
+</div>
+
+<!-- R35 -->
+
+<div class="card" onclick="showInfo('R35 GT-R','Released in 2007 and still in production. A modern supercar killer.')">
+
+<video autoplay muted loop>
+<source src="videos/r35.mp4" type="video/mp4">
+</video>
+
 <div class="card-content">
 <h2>R35 GT-R</h2>
 <p>The modern Godzilla.</p>
 </div>
+
 </div>
 
 </div>
+
+<!-- Popup -->
 
 <div class="popup" id="popup">
+
 <div class="popup-content">
+
 <h2 id="title"></h2>
 <p id="text"></p>
-<button class="close" onclick="closePopup()">Close</button>
+
+<button onclick="closePopup()">Close</button>
+
 </div>
+
 </div>
 
 <script>
 
 function showInfo(title,text){
-document.getElementById("popup").style.display="flex";
-document.getElementById("title").innerText=title;
-document.getElementById("text").innerText=text;
+
+document.getElementById("popup").style.display="flex"
+document.getElementById("title").innerText=title
+document.getElementById("text").innerText=text
+
 }
 
 function closePopup(){
-document.getElementById("popup").style.display="none";
+
+document.getElementById("popup").style.display="none"
+
 }
 
 </script>
