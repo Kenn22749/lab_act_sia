@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My JDM Garage</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>My JDM Dream Garage</h1>
+    <p>Click a car to learn why I love it</p>
+</header>
+
+<section class="garage">
+
+<div class="car" onclick="showInfo('r34')">
+    <img src="r34.jpg">
+    <h3>Nissan Skyline R34 GTR</h3>
+</div>
+
+<div class="car" onclick="showInfo('rx7')">
+    <img src="rx7.jpg">
+    <h3>Mazda RX-7</h3>
+</div>
+
+<div class="car" onclick="showInfo('nsx')">
+    <img src="nsx.jpg">
+    <h3>Honda NSX</h3>
+</div>
+
+<div class="car" onclick="showInfo('evox')">
+    <img src="evox.jpg">
+    <h3>Mitsubishi Evo X</h3>
+</div>
+
+</section>
+
+<div id="infoBox">
+<h2 id="carTitle"></h2>
+<p id="carDescription"></p>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
