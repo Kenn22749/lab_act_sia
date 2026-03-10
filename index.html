@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GTR Generations</title>
+
+<title>Nissan GTR Generations</title>
 
 <style>
 
@@ -14,12 +16,12 @@ box-sizing:border-box;
 font-family:Segoe UI, sans-serif;
 }
 
-/* Animated background */
+/* Animated gradient background */
 
 body{
 background: linear-gradient(-45deg,#89f7fe,#66a6ff,#fbc2eb,#a6c1ee);
 background-size:400% 400%;
-animation:gradientMove 12s ease infinite;
+animation:gradientMove 10s ease infinite;
 min-height:100vh;
 }
 
@@ -45,7 +47,6 @@ text-shadow:0 5px 15px rgba(0,0,0,0.3);
 
 header p{
 margin-top:10px;
-opacity:0.9;
 }
 
 /* Grid */
@@ -62,18 +63,17 @@ margin:auto;
 /* Cards */
 
 .card{
-background:rgba(255,255,255,0.25);
+background:rgba(255,255,255,0.3);
 backdrop-filter:blur(10px);
-border-radius:18px;
+border-radius:15px;
 overflow:hidden;
 cursor:pointer;
-transition:0.4s;
+transition:0.3s;
 box-shadow:0 10px 25px rgba(0,0,0,0.2);
 }
 
 .card:hover{
 transform:translateY(-10px) scale(1.03);
-box-shadow:0 20px 40px rgba(0,0,0,0.3);
 }
 
 /* Video */
@@ -107,7 +107,7 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.5);
+background:rgba(0,0,0,0.6);
 display:none;
 align-items:center;
 justify-content:center;
@@ -145,7 +145,7 @@ cursor:pointer;
 
 <!-- R32 -->
 
-<div class="card" onclick="showInfo('R32 GT-R','Produced from 1989 to 1994, the R32 dominated motorsports and earned the nickname Godzilla.')">
+<div class="card" onclick="showInfo('R32 GT-R','1989–1994. The R32 dominated racing and earned the nickname Godzilla.')">
 
 <video autoplay muted loop>
 <source src="videos/r32.mp4" type="video/mp4">
@@ -153,14 +153,14 @@ cursor:pointer;
 
 <div class="card-content">
 <h2>R32 GT-R</h2>
-<p>The rebirth of the legendary Skyline.</p>
+<p>The rebirth of the Skyline legend.</p>
 </div>
 
 </div>
 
 <!-- R33 -->
 
-<div class="card" onclick="showInfo('R33 GT-R','Produced from 1995 to 1998. Known for its Nürburgring performance and improved stability.')">
+<div class="card" onclick="showInfo('R33 GT-R','1995–1998. Improved aerodynamics and Nürburgring performance.')">
 
 <video autoplay muted loop>
 <source src="videos/r33.mp4" type="video/mp4">
@@ -175,7 +175,7 @@ cursor:pointer;
 
 <!-- R34 -->
 
-<div class="card" onclick="showInfo('R34 GT-R','Produced from 1999 to 2002. One of the most iconic JDM cars ever created.')">
+<div class="card" onclick="showInfo('R34 GT-R','1999–2002. One of the most iconic JDM cars in the world.')">
 
 <video autoplay muted loop>
 <source src="videos/r34.mp4" type="video/mp4">
@@ -183,14 +183,14 @@ cursor:pointer;
 
 <div class="card-content">
 <h2>R34 GT-R</h2>
-<p>The fan favorite legend.</p>
+<p>The fan-favorite legend.</p>
 </div>
 
 </div>
 
 <!-- R35 -->
 
-<div class="card" onclick="showInfo('R35 GT-R','Released in 2007 and still in production. A modern supercar killer.')">
+<div class="card" onclick="showInfo('R35 GT-R','2007–Present. A modern supercar killer with advanced AWD.')">
 
 <video autoplay muted loop>
 <source src="videos/r35.mp4" type="video/mp4">
@@ -210,12 +210,9 @@ cursor:pointer;
 <div class="popup" id="popup">
 
 <div class="popup-content">
-
 <h2 id="title"></h2>
 <p id="text"></p>
-
 <button onclick="closePopup()">Close</button>
-
 </div>
 
 </div>
@@ -223,17 +220,13 @@ cursor:pointer;
 <script>
 
 function showInfo(title,text){
-
-document.getElementById("popup").style.display="flex"
-document.getElementById("title").innerText=title
-document.getElementById("text").innerText=text
-
+document.getElementById("popup").style.display="flex";
+document.getElementById("title").innerText=title;
+document.getElementById("text").innerText=text;
 }
 
 function closePopup(){
-
-document.getElementById("popup").style.display="none"
-
+document.getElementById("popup").style.display="none";
 }
 
 </script>
