@@ -3,47 +3,140 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My JDM Garage</title>
-<link rel="stylesheet" href="style.css">
+
+<title>JDM Legends</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:linear-gradient(135deg,#0f0f0f,#1a1a1a,#000);
+    color:white;
+    text-align:center;
+}
+
+/* Title */
+
+h1{
+    margin-top:30px;
+    font-size:50px;
+    letter-spacing:3px;
+    text-shadow:0 0 15px cyan;
+}
+
+/* Car container */
+
+.container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:40px;
+    padding:40px;
+}
+
+/* Car card */
+
+.car{
+    width:250px;
+    background:#111;
+    border-radius:15px;
+    overflow:hidden;
+    cursor:pointer;
+    transition:0.4s;
+    box-shadow:0 0 10px rgba(0,255,255,0.3);
+}
+
+.car:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 25px cyan;
+}
+
+.car img{
+    width:100%;
+}
+
+/* description */
+
+.desc{
+    display:none;
+    padding:15px;
+    font-size:14px;
+    color:#ddd;
+}
+
+/* active class */
+
+.car.active .desc{
+    display:block;
+}
+
+/* footer */
+
+footer{
+    margin-top:30px;
+    padding:20px;
+    color:#aaa;
+}
+
+</style>
 </head>
 
 <body>
 
-<header>
-    <h1>My JDM Dream Garage</h1>
-    <p>Click a car to learn why I love it</p>
-</header>
+<h1>JDM LEGENDS</h1>
+<p>Click a car to learn about it</p>
 
-<section class="garage">
+<div class="container">
 
-<div class="car" onclick="showInfo('r34')">
-    <img src="r34.jpg">
-    <h3>Nissan Skyline R34 GTR</h3>
+<div class="car" onclick="toggle(this)">
+<img src="https://i.imgur.com/9XnK4YB.png">
+<h3>Nissan R34 GTR</h3>
+<div class="desc">
+The Nissan Skyline R34 GTR is one of the most iconic JDM cars ever made. 
+Powered by the legendary RB26DETT engine, it became famous in racing and movies like Fast & Furious.
+</div>
 </div>
 
-<div class="car" onclick="showInfo('rx7')">
-    <img src="rx7.jpg">
-    <h3>Mazda RX-7</h3>
+<div class="car" onclick="toggle(this)">
+<img src="https://i.imgur.com/eQ2hK8s.png">
+<h3>Mazda RX-7</h3>
+<div class="desc">
+The Mazda RX-7 is famous for its lightweight body and rotary engine. 
+It became a drifting legend and a fan favorite in JDM culture.
+</div>
 </div>
 
-<div class="car" onclick="showInfo('nsx')">
-    <img src="nsx.jpg">
-    <h3>Honda NSX</h3>
+<div class="car" onclick="toggle(this)">
+<img src="https://i.imgur.com/z2F2B9K.png">
+<h3>Honda NSX</h3>
+<div class="desc">
+The Honda NSX is Japan's first supercar. Designed with Formula 1 technology and even tested by Ayrton Senna.
+</div>
 </div>
 
-<div class="car" onclick="showInfo('evox')">
-    <img src="evox.jpg">
-    <h3>Mitsubishi Evo X</h3>
+<div class="car" onclick="toggle(this)">
+<img src="https://i.imgur.com/Gy1cR9V.png">
+<h3>Mitsubishi Evo X</h3>
+<div class="desc">
+The Mitsubishi Lancer Evolution X is known for its aggressive design and rally heritage. 
+It is one of the most powerful AWD JDM performance cars.
+</div>
 </div>
 
-</section>
-
-<div id="infoBox">
-<h2 id="carTitle"></h2>
-<p id="carDescription"></p>
 </div>
 
-<script src="script.js"></script>
+<footer>
+Created by Kenn | JDM Enthusiast
+</footer>
+
+<script>
+
+function toggle(card){
+    card.classList.toggle("active");
+}
+
+</script>
 
 </body>
 </html>
