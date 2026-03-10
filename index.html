@@ -4,79 +4,74 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>JDM Legends</title>
+<title>Nissan GTR Generations</title>
 
 <style>
 
 body{
     margin:0;
-    font-family:Arial, Helvetica, sans-serif;
-    background:linear-gradient(135deg,#0f0f0f,#1a1a1a,#000);
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(120deg,#0f0f0f,#1a1a1a,#000);
     color:white;
+}
+
+header{
     text-align:center;
-}
-
-/* Title */
-
-h1{
-    margin-top:30px;
-    font-size:50px;
-    letter-spacing:3px;
-    text-shadow:0 0 15px cyan;
-}
-
-/* Car container */
-
-.container{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:40px;
     padding:40px;
 }
 
-/* Car card */
+header h1{
+    font-size:40px;
+    letter-spacing:3px;
+}
 
-.car{
-    width:250px;
+header p{
+    color:#aaa;
+}
+
+.container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    padding:40px;
+}
+
+.card{
     background:#111;
     border-radius:15px;
     overflow:hidden;
-    cursor:pointer;
     transition:0.4s;
-    box-shadow:0 0 10px rgba(0,255,255,0.3);
+    cursor:pointer;
 }
 
-.car:hover{
-    transform:scale(1.08);
-    box-shadow:0 0 25px cyan;
+.card:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 25px rgba(255,255,255,0.2);
 }
 
-.car img{
+.card img{
     width:100%;
+    height:180px;
+    object-fit:cover;
 }
 
-/* description */
+.card-content{
+    padding:20px;
+}
 
-.desc{
-    display:none;
-    padding:15px;
+.card h2{
+    margin:0;
+}
+
+.card p{
     font-size:14px;
-    color:#ddd;
+    color:#ccc;
 }
-
-/* active class */
-
-.car.active .desc{
-    display:block;
-}
-
-/* footer */
 
 footer{
-    margin-top:30px;
+    text-align:center;
     padding:20px;
-    color:#aaa;
+    color:#777;
 }
 
 </style>
@@ -84,59 +79,54 @@ footer{
 
 <body>
 
-<h1>JDM LEGENDS</h1>
-<p>Click a car to learn about it</p>
+<header>
+<h1>Nissan GTR Generations</h1>
+<p>The Evolution of Godzilla</p>
+</header>
 
 <div class="container">
 
-<div class="car" onclick="toggle(this)">
-<img src="https://i.imgur.com/9XnK4YB.png">
-<h3>Nissan R34 GTR</h3>
-<div class="desc">
-The Nissan Skyline R34 GTR is one of the most iconic JDM cars ever made. 
-Powered by the legendary RB26DETT engine, it became famous in racing and movies like Fast & Furious.
+<!-- R32 -->
+<div class="card">
+<img src="images/r32.jpg">
+<div class="card-content">
+<h2>R32 GT-R</h2>
+<p>Produced from 1989-1994, the R32 earned the nickname "Godzilla" because it dominated racing in Japan and Australia with its RB26DETT twin-turbo engine.</p>
 </div>
 </div>
 
-<div class="car" onclick="toggle(this)">
-<img src="https://i.imgur.com/eQ2hK8s.png">
-<h3>Mazda RX-7</h3>
-<div class="desc">
-The Mazda RX-7 is famous for its lightweight body and rotary engine. 
-It became a drifting legend and a fan favorite in JDM culture.
+<!-- R33 -->
+<div class="card">
+<img src="images/r33.jpg">
+<div class="card-content">
+<h2>R33 GT-R</h2>
+<p>Released in 1995, the R33 improved stability and aerodynamics. It became the first production car to lap the Nürburgring under 8 minutes.</p>
 </div>
 </div>
 
-<div class="car" onclick="toggle(this)">
-<img src="https://i.imgur.com/z2F2B9K.png">
-<h3>Honda NSX</h3>
-<div class="desc">
-The Honda NSX is Japan's first supercar. Designed with Formula 1 technology and even tested by Ayrton Senna.
+<!-- R34 -->
+<div class="card">
+<img src="images/r34.jpg">
+<div class="card-content">
+<h2>R34 GT-R</h2>
+<p>Produced from 1999-2002, the R34 became the most iconic GTR thanks to its appearance in racing, gaming, and movies like Fast & Furious.</p>
 </div>
 </div>
 
-<div class="car" onclick="toggle(this)">
-<img src="https://i.imgur.com/Gy1cR9V.png">
-<h3>Mitsubishi Evo X</h3>
-<div class="desc">
-The Mitsubishi Lancer Evolution X is known for its aggressive design and rally heritage. 
-It is one of the most powerful AWD JDM performance cars.
+<!-- R35 -->
+<div class="card">
+<img src="images/r35.jpg">
+<div class="card-content">
+<h2>R35 GT-R</h2>
+<p>Released in 2007, the R35 dropped the Skyline name and introduced a modern twin-turbo V6 with advanced AWD technology.</p>
 </div>
 </div>
 
 </div>
 
 <footer>
-Created by Kenn | JDM Enthusiast
+<p>JDM Legends | Nissan GTR History</p>
 </footer>
-
-<script>
-
-function toggle(card){
-    card.classList.toggle("active");
-}
-
-</script>
 
 </body>
 </html>
